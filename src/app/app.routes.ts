@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ApiDataComponent } from './api-data/api-data.component';
 import { FormComponent } from './form/form.component';
 
+
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },

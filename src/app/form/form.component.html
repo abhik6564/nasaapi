@@ -6,7 +6,7 @@
       <input id="name" formControlName="name" placeholder="Enter your name" />
       <div
         class="error"
-        *ngIf="feedbackForm.get('name')?.hasError('required') && feedbackForm.get('name')?.touched"
+        *ngIf="feedbackForm.get('name')?.invalid && (feedbackForm.get('name')?.touched || feedbackForm.get('name')?.dirty)"
       >
         Name is required.
       </div>
@@ -17,15 +17,10 @@
       <input id="email" formControlName="email" placeholder="Enter your email" />
       <div
         class="error"
-        *ngIf="feedbackForm.get('email')?.hasError('required') && feedbackForm.get('email')?.touched"
+        *ngIf="feedbackForm.get('email')?.invalid && (feedbackForm.get('email')?.touched || feedbackForm.get('email')?.dirty)"
       >
-        Email is required.
-      </div>
-      <div
-        class="error"
-        *ngIf="feedbackForm.get('email')?.hasError('email') && feedbackForm.get('email')?.touched"
-      >
-        Invalid email format.
+        <div *ngIf="feedbackForm.get('email')?.errors?.['required']">Email is required.</div>
+        <div *ngIf="feedbackForm.get('email')?.errors?.['email']">Invalid email format.</div>
       </div>
     </div>
 
@@ -34,15 +29,10 @@
       <textarea id="message" formControlName="message" placeholder="Your feedback"></textarea>
       <div
         class="error"
-        *ngIf="feedbackForm.get('message')?.hasError('required') && feedbackForm.get('message')?.touched"
+        *ngIf="feedbackForm.get('message')?.invalid && (feedbackForm.get('message')?.touched || feedbackForm.get('message')?.dirty)"
       >
-        Message is required.
-      </div>
-      <div
-        class="error"
-        *ngIf="feedbackForm.get('message')?.hasError('minlength') && feedbackForm.get('message')?.touched"
-      >
-        Message should be at least 10 characters.
+        <div *ngIf="feedbackForm.get('message')?.errors?.['required']">Message is required.</div>
+        <div *ngIf="feedbackForm.get('message')?.errors?.['minlength']">Message should be at least 10 characters.</div>
       </div>
     </div>
 

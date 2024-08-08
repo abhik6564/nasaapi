@@ -20,10 +20,10 @@ export class FormComponent {
     });
 
     // Debugging form states
-    console.log('Initial Form State:', this.feedbackForm.value);
-    this.feedbackForm.valueChanges.subscribe(value => {
-      console.log('Form Changes:', value);
-    });
+    // console.log('Initial Form State:', this.feedbackForm.value);
+    // this.feedbackForm.valueChanges.subscribe(value => {
+    //   console.log('Form Changes:', value);
+    // });
   }
 
   onSubmit(): void {
