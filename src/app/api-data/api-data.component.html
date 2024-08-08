@@ -1,0 +1,19 @@
+<div class="api-data-container" [style.background-image]="'url(' + apodData.hdurl + ')'">
+  <div class="overlay">
+    <div class="text-content">
+      <h2>{{ apodData.title }}</h2>
+      <p class="date">Date: {{ apodData.date }}</p>
+      <p class="explanation">{{ apodData.explanation }}</p>
+      <p class="copyright">Copyright: {{ apodData.copyright }}</p>
+      <a class="explore-button" href="https://apod.nasa.gov/apod/archivepixFull.html" target="_blank">Start Exploring</a>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading data...</p>
+</ng-template>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>

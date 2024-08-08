@@ -1,0 +1,35 @@
+<!-- src/app/home/home.component.html -->
+<div class="home-container">
+  <div class="title-container">
+    <h1>Welcome to NASA's Astronomy Picture of the Day</h1>
+  </div>
+  <div class="content-wrapper">
+    <div *ngIf="imageUrl; else loading" class="image-container">
+      <img [src]="imageUrl" alt="NASA APOD Image" class="nasa-logo">
+    </div>
+    <ng-template #loading>
+      <p>Loading image...</p>
+    </ng-template>
+    <div class="text-container">
+      <p>
+        Explore the wonders of the cosmos through our daily updates about various astronomical events
+        and objects. Our application brings you the latest information and stunning images
+        from space, provided by NASA's Astronomy Picture of the Day (APOD) API.
+      </p>
+      <div *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+      </div>
+      <p>
+        Every day, you'll find a new image or video highlighting the beauty and mystery of our
+        universe, accompanied by a detailed explanation written by professional astronomers.
+        Whether it's a distant galaxy, a spectacular nebula, or a comet passing by Earth, we aim to
+        keep you informed and inspired by the latest discoveries and celestial phenomena.
+      </p>
+      <p>
+        Stay tuned for daily updates and immerse yourself in the awe-inspiring realm of space
+        exploration. Enjoy breathtaking visuals and deepen your understanding of the universe with
+        our comprehensive and accessible content.
+      </p>
+    </div>
+  </div>
+</div>
